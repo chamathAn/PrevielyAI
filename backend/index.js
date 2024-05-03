@@ -25,8 +25,13 @@ app.use(ClerkExpressRequireAuth({
     }
 }))
 app.use(express.urlencoded({ extended: true }));
-app.use("/apply", require('./routes/applyRoute'));
+app.use("/api/apply", require('./routes/applyRoute'));
 
+mongoose.connect(process.env.MONGODB_URL).then(() => {
+    console.log("Connected to MongoDB")
+}).catch((err) => {
+    console.log(err);
+})
 
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500;
