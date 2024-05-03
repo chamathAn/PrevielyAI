@@ -15,6 +15,9 @@ import Dashboad from "./admin/Dashboad.jsx";
 const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
 import { useUser } from "@clerk/clerk-react";
 import AdmiProtectedRoute from "./admin/utils/AdmiProtectedRoute.jsx";
+import PostJob from "./admin/PostJob.jsx";
+import AdminJobApplication from "./admin/AdminJobApplication.jsx";
+import AdminJobPage from "./admin/AdminJobPage.jsx";
 
 function App() {
   const { isLoaded } = useUser();
@@ -30,7 +33,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/apply" element={<ApplyWrapper />} />
+        <Route path="/apply/job/:id" element={<ApplyWrapper />} />
         <Route
           path="/admin"
           element={
@@ -38,6 +41,54 @@ function App() {
               <SignedIn>
                 <AdmiProtectedRoute>
                   <Dashboad />
+                </AdmiProtectedRoute>
+              </SignedIn>
+
+              <SignedOut>
+                <RedirectToSignIn />
+              </SignedOut>
+            </>
+          }
+        />
+        <Route
+          path="/admin/job/create"
+          element={
+            <>
+              <SignedIn>
+                <AdmiProtectedRoute>
+                  <PostJob />
+                </AdmiProtectedRoute>
+              </SignedIn>
+
+              <SignedOut>
+                <RedirectToSignIn />
+              </SignedOut>
+            </>
+          }
+        />
+        <Route
+          path="/admin/job/:id"
+          element={
+            <>
+              <SignedIn>
+                <AdmiProtectedRoute>
+                  <AdminJobPage />
+                </AdmiProtectedRoute>
+              </SignedIn>
+
+              <SignedOut>
+                <RedirectToSignIn />
+              </SignedOut>
+            </>
+          }
+        />
+        <Route
+          path="/admin/job/:id/application/:applicationId"
+          element={
+            <>
+              <SignedIn>
+                <AdmiProtectedRoute>
+                  <AdminJobApplication />
                 </AdmiProtectedRoute>
               </SignedIn>
 
