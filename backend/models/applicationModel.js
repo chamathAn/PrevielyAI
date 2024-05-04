@@ -10,6 +10,11 @@ const applicationSchema = new Schema({
         type: String,
         required: true
     },
+    applicantName:{
+        type: String,
+        required: true
+    }
+    ,
     answers:{
         type: [String],
         required: true
