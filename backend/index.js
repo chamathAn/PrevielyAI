@@ -1,12 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const { ClerkExpressRequireAuth } = require("@clerk/clerk-sdk-node");
-const { createError } = require("./utils/error");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
-const public_key = process.env.CLERK_PUBLIC_KEY;
 
 require("dotenv").config();
 
@@ -20,17 +17,8 @@ app.use(
     credentials: true,
   })
 );
-app.use(
-  ClerkExpressRequireAuth({
-    authorizedParties: ["http://localhost:5173"],
-    jwtKey: public_key,
-    onerror: (err, req, res, next) => {
-      next(createError(401, err.message));
-    },
-  })
-);
 app.use(express.urlencoded({ extended: true }));
-app.use("/api/apply", require("./routes/applyRoute"));
+app.use("/api/application", require("./routes/applicationRoute"));
 app.use("/api/admin", require("./routes/adminRoute"));
 
 mongoose

@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <div className="flex justify-around h-[80px] bg-[#080c14] text-[#f3f3f3] items-center">
-      <span>Logo</span>
+      <span className="text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#d9ff00] to-[#00a49d]">PrevielyAI</span>
       {isSignedIn ? (
         <div className="flex gap-4 w-fit">
           <span className="text-[#f3f3f3] ">Welcome, {user.firstName}</span>

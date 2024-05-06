@@ -1,8 +1,8 @@
 const checkAdmin = (req, res, next) => {
   if (req.auth.claims.metadata.role !== "admin") {
-    next(createError(401, "Unauthorized"));
+    return next(createError(401, "Unauthorized")); 
   }
-  next();
+  next(); 
 };
 
 module.exports = checkAdmin;

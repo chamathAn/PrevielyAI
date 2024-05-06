@@ -43,7 +43,7 @@ export default function PostJob() {
   return (
     <div className="bg-[#080c14] min-h-screen h-fit text-white px-[22%]">
       <div className="flex flex-col pb-28">
-        <div className="py-10 text-3xl font-bold">Create A Job Posting</div>
+        <div className="py-10 text-3xl font-bold ">Create A Job Posting</div>
         <form onSubmit={handleSubmit}>
           <h1 className="pb-6 text-xl font-semibold">Title</h1>
           <input
