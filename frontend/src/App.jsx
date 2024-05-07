@@ -8,7 +8,7 @@ import {
 import "./App.css";
 import Home from "./Pages/Home.jsx";
 import Apply from "./Pages/Apply.jsx";
-import { SignedIn, SignedOut, RedirectToSignIn, useAuth } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
 import Dashboad from "./admin/Dashboad.jsx";
 const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
 import { useUser } from "@clerk/clerk-react";
@@ -19,7 +19,7 @@ import AdminJobPage from "./admin/AdminJobPage.jsx";
 import axios from "axios";
 import Navbar from "./Components/Navbar.jsx";
 import { Toaster } from "react-hot-toast";
-
+import { ThreeDots } from 'react-loader-spinner'
 function App() {
  
   const { isLoaded } = useUser();
@@ -28,7 +28,15 @@ function App() {
 
 
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <div className="h-screen bg-[#080c14] flex justify-center items-center">
+        <ThreeDots
+            height={80}
+            width={80}
+            color="#2563EB"
+            radius={9}
+            ariaLabel="three-dots-loading"
+          />
+    </div>;
   }
 
   return (
