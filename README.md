@@ -27,7 +27,7 @@ PrevelyAI is a AI powered application that helps job interviews happen smoothly.
 **API Test:** 
 [![My Skills](https://skillicons.dev/icons?i=postman)](https://skillicons.dev) 
 
-**Deployment:** Vercel + Railway
+**Deployment:** Vercel + Render
 
 **Auth:** Clerk
 
